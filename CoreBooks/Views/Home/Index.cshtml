@@ -1,0 +1,26 @@
+﻿@model List<CoreBooks.Models.Books>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+<h1>Index</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <td>BookName</td>
+        <td>Author</td>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.BookName</td>
+            <td>@k.Author</td>
+        </tr>
+    }
+</table>
+<h2>New Books</h2>
+@await Component.InvokeAsync("NewBooks")
+<br />
+@Html.Partial("_PartialPage") 
